@@ -3,6 +3,7 @@
 #include <conio.h>
 #include <stdlib.h>
 #include <ctime>
+#include <Windows.h>
 #include "battleshipfunctions.h"
 
 using namespace std;
@@ -35,28 +36,24 @@ printgreeting();
 
 
     for (int i = 0; i < 5; i++){  //until all p1ships are chosen
+        system("cls");
         printboard(p1board, p1hitboard);
         printships(p1ships);        //list p1ships, user chooses one
         shipnum = getship(p1ships);   //use shipnum to get length
         length = getlength(shipnum); //get length
         rotate = getrotation();        //get rotation
     coordreset:                         //reset if ship intersects
-        x = getxcoord(length, rotate, p1board);  //get/check coords 
-        y = getycoord(length, rotate, p1board);
+        x = getxcoord(length, rotate);  //get/check coords 
+        y = getycoord(length, rotate);
 
         if (checkintersect(x, y, rotate, length, p1board)){
             goto coordreset;
         }
-
         placeship(x, y, rotate, length, p1board); //place the ship once all error checks are passed  
     }
 
-    //CPU places cpuships randomly
-    
+    //CPU places cpuships randomly    
     autoplaceships(cpuships, cpuboard);
-    
-    
-
 
 while(p1hits != 17){  //until all cpuships sunk
   printhitboard(cpuhitboard);
@@ -65,10 +62,12 @@ while(p1hits != 17){  //until all cpuships sunk
   x = shootx(); //get x coord for shot
   y = shooty(); //get y coord for shot
   if(shoot(x, y, cpuboard, cpuhitboard) == true){
+    system("cls");
     p1hits++;
     cout << "Hit!" << endl << endl; //increment p1hits if hit
   }
   else{
+    system("cls");
     cout << "Miss!" << endl << endl; //loop again if miss
   }
 
@@ -84,11 +83,9 @@ while(p1hits != 17){  //until all cpuships sunk
     printdefeat();
     return 0;
   }
-
 }
 
 printvictory();
-
 
 return 0; 
 }
