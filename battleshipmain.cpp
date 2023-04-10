@@ -54,7 +54,7 @@ printgreeting();
 
     //CPU places cpuships randomly    
     autoplaceships(cpuships, cpuboard);
-
+system("cls");
 while(p1hits != 17){  //until all cpuships sunk
   printhitboard(cpuhitboard);
   printboard(p1board, p1hitboard);
