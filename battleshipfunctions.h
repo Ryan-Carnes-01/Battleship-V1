@@ -87,7 +87,7 @@ void printgreeting(){
 }
 
 void printships(bool ships[5]){     //lists ships
-    cout << "Which ship would you like to place? Enter the associated number (NOT size)" << endl;
+    cout << "Which ship would you like to place? Enter the associated number" << endl;
     if (ships[0] == 1){
         cout << "1: " << left << setw(11) << "Destroyer " << "- size 2 [ ][ ]" << endl;
     }
@@ -396,7 +396,7 @@ bool cpushoot(bool board[10][10], int hitboard[10][10]){
     //rand x
     //rand y
 
-    //check if ship/already hit
+    //check if ship or if already hit
     if (board[y][x] == 1 && hitboard[y][x] != 2){
         hitboard[y][x] = 2;
         return true;

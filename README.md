@@ -4,4 +4,3 @@ Small open source C++ summer project that simulates the board game "battleship",
 1. BattleshipV1.exe will download a compiled working example of the game itself
 2. battleshipmain.cpp holds the main driver code for the program
 3. battleshipfunctions.h defines the functions used in main
-4. battleshipfunctionprototypes.h defines the prototypes in battleshipfunctions.h (not used)
